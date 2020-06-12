@@ -143,7 +143,7 @@ end
 initial 
 begin
   $monitor($time,"PC %h",pc,"  SUM %h",sum,"   INST %h",instruc[31:0],
-"   REGISTER %h %h %h %h ",registerfile[4],registerfile[5], registerfile[6],registerfile[1] );
+"   REGISTER %h ",registerfile[3] );
 end
 endmodule
 

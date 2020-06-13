@@ -42,7 +42,7 @@ wire link_rt, reg31_rt;
 wire zout,nout,	//Zero output of ALU
 pcsrc, reg31_control, link_control, jump_control,	//Output of AND gate with Branch and ZeroOut inputs
 //Control signals
-regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump,jpc;
+regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal;
 
 //32-size register file (32 bit(1 word) for each register)
 reg [31:0] registerfile[0:31];
@@ -130,7 +130,7 @@ adder add2(adder1out,sextad,adder2out);
 
 //Control unit
 control cont(instruc[31:26],regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,
-aluop1,aluop0,baln,link,reg31,jump,jpc);
+aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal);
 
 //Sign extend unit
 signext sext(instruc[15:0],extad);
@@ -144,7 +144,7 @@ shift shift26(inst25_0_shift, inst25_0);
 zeroext zext(inst25_0_shift_ext,inst25_0_shift);
 
 //AND gate
-assign pcsrc=branch && (out5||jpc); 
+assign pcsrc=branch && (((bltzal&&instruc[25])||out5)||jpc); 
 assign reg31_control=reg31 || reg31_rt;
 assign link_control=link || link_rt;
 assign jump_control=jump ^^ jpc;

@@ -1,6 +1,7 @@
-module alucont(aluop1,aluop0,f3,f2,f1,f0,gout);//Figure 4.12 
+module alucont(aluop1,aluop0,f3,f2,f1,f0,gout,link_rt,reg31_rt);//Figure 4.12 
 input aluop1,aluop0,f3,f2,f1,f0;
 output [2:0] gout;
+output link_rt, reg31_rt;
 reg [2:0] gout;
 always @(aluop1 or aluop0 or f3 or f2 or f1 or f0)
 begin
@@ -17,4 +18,7 @@ begin
 	if (~(f3)&~(f2)&f1&~(f0))gout=3'b011;	//function code=0010,ALU control=011 (srl)
 end
 end
+assign link_rt = ((aluop1)&(~aluop0)) & ( (f2&f0&~(f3)&~(f1)) | (f3&~(f2)&~(f1)&f0) );
+assign reg31_rt =  ((aluop1)&(~aluop0)) & (f2&f0&~(f3)&~f1);
+
 endmodule

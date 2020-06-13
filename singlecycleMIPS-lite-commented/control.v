@@ -1,20 +1,27 @@
-module control(in,regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop2);
+module control(in,regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop2, baln,link,reg31,jump);
 input [5:0] in;
-output regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop2;
-wire rformat,lw,sw,beq;
+output regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop2,baln,link,reg31,jump;
+wire rformat,lw,sw,beq,ori,srl,baln_inst;
+
 assign rformat=~|in;
 assign lw=in[5]& (~in[4])&(~in[3])&(~in[2])&in[1]&in[0];
 assign sw=in[5]& (~in[4])&in[3]&(~in[2])&in[1]&in[0];
 assign beq=~in[5]& (~in[4])&(~in[3])&in[2]&(~in[1])&(~in[0]);
 assign ori=(~in[5])&(~in[4])&in[3]&in[2]&(~in[1])&in[0];
 assign srl=~|in;
+assign baln_inst=(~in[5])&in[4]&in[3]&(~in[2])&in[1]&in[0];
+
 assign regdest=rformat|srl;
 assign alusrc=lw|sw|ori;
 assign memtoreg=lw;
-assign regwrite=rformat|lw|ori|srl;
+assign regwrite=rformat|lw|ori|srl|baln;
 assign memread=lw;
 assign memwrite=sw;
-assign branch=beq;
+assign branch=beq|baln;
 assign aluop1=rformat|ori|srl;
 assign aluop2=beq|ori;
+assign baln=baln_inst;
+assign link=baln_inst;
+assign reg31=baln_inst;
+assign jump=baln_inst;
 endmodule

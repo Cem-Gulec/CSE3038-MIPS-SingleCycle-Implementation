@@ -40,9 +40,9 @@ wire [2:0] gout;	//Output of ALU control unit
 wire link_rt, reg31_rt;
 
 wire zout,nout,	//Zero output of ALU
-pcsrc, reg31_control, link_control,	//Output of AND gate with Branch and ZeroOut inputs
+pcsrc, reg31_control, link_control, jump_control,	//Output of AND gate with Branch and ZeroOut inputs
 //Control signals
-regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump;
+regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump,jpc;
 
 //32-size register file (32 bit(1 word) for each register)
 reg [31:0] registerfile[0:31];
@@ -93,7 +93,7 @@ assign dpack={datmem[sum[5:0]],datmem[sum[5:0]+1],datmem[sum[5:0]+2],datmem[sum[
 mult2_to_1_1  mult5(out5, stat_reg[2], stat_reg[1], baln);
 
 //mux with jump control (2nd top)
-mult2_to_1_32 mult8(out8, out4, inst25_0_shift_ext, jump);
+mult2_to_1_32 mult8(out8, out4, inst25_0_shift_ext, jump_control);
 
 //mux with (reg31|reg31_rt) control
 mult2_to_1_5  mult6(out6, out1, 31, reg31_control);
@@ -130,7 +130,7 @@ adder add2(adder1out,sextad,adder2out);
 
 //Control unit
 control cont(instruc[31:26],regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,
-aluop1,aluop0,baln,link,reg31,jump);
+aluop1,aluop0,baln,link,reg31,jump,jpc);
 
 //Sign extend unit
 signext sext(instruc[15:0],extad);
@@ -144,9 +144,10 @@ shift shift26(inst25_0_shift, inst25_0);
 zeroext zext(inst25_0_shift_ext,inst25_0_shift);
 
 //AND gate
-assign pcsrc=branch && out5; 
+assign pcsrc=branch && (out5||jpc); 
 assign reg31_control=reg31 || reg31_rt;
 assign link_control=link || link_rt;
+assign jump_control=jump ^^ jpc;
 
 //initialize datamemory,instruction memory and registers
 //read initial data from files given in hex

@@ -7,13 +7,14 @@ assign lw=in[5]& (~in[4])&(~in[3])&(~in[2])&in[1]&in[0];
 assign sw=in[5]& (~in[4])&in[3]&(~in[2])&in[1]&in[0];
 assign beq=~in[5]& (~in[4])&(~in[3])&in[2]&(~in[1])&(~in[0]);
 assign ori=(~in[5])&(~in[4])&in[3]&in[2]&(~in[1])&in[0];
-assign regdest=rformat;
+assign srl=~|in;
+assign regdest=rformat|srl;
 assign alusrc=lw|sw|ori;
 assign memtoreg=lw;
-assign regwrite=rformat|lw|ori;
+assign regwrite=rformat|lw|ori|srl;
 assign memread=lw;
 assign memwrite=sw;
 assign branch=beq;
-assign aluop1=rformat|ori;
+assign aluop1=rformat|ori|srl;
 assign aluop2=beq|ori;
 endmodule

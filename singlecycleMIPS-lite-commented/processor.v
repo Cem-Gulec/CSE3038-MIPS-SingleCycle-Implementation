@@ -21,6 +21,8 @@ inst20_16,	//20-16 bits of instruction
 inst15_11,	//15-11 bits of instruction
 out1;		//Write data input of Register File
 
+wire [4:0] shamt;
+
 wire [15:0] inst15_0;	//15-0 bits of instruction
 
 wire [31:0] instruc,	//current instruction
@@ -59,6 +61,7 @@ end
  assign inst20_16=instruc[20:16];
  assign inst15_11=instruc[15:11];
  assign inst15_0=instruc[15:0];
+ assign shamt=instruc[10:6];
 
 
 // registers
@@ -91,7 +94,7 @@ pc=out4;
 // alu, adder and control logic connections
 
 //ALU unit
-alu32 alu1(sum,dataa,out2,zout,gout);
+alu32 alu1(shamt,sum,dataa,out2,zout,gout);
 
 //adder which adds PC and 4
 adder add1(pc,32'h4,adder1out);

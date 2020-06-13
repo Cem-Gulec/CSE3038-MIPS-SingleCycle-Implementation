@@ -1,6 +1,7 @@
-module alu32(sum,a,b,zout,gin);//ALU operation according to the ALU control line values
+module alu32(shamt,sum,a,b,zout,gin);//ALU operation according to the ALU control line values
 output [31:0] sum;
-input [31:0] a,b; 
+input [31:0] a,b;
+input [4:0] shamt; 
 input [2:0] gin;//ALU control line
 reg [31:0] sum;
 reg [31:0] less;
@@ -9,6 +10,7 @@ reg zout;
 always @(a or b or gin)
 begin
 	case(gin)
+	3'b011: sum=b>>shamt;	//ALU control line=011, srl
 	3'b010: sum=a+b; 		//ALU control line=010, ADD
 	3'b110: sum=a+1+(~b);	//ALU control line=110, SUB
 	3'b111: begin less=a+1+(~b);	//ALU control line=111, set on less than

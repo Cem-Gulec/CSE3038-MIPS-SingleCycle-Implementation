@@ -18,7 +18,7 @@ begin
 	if (~(f3)&~(f2)&f1&~(f0))gout=3'b011;	//function code=0010,ALU control=011 (srl)
 end
 end
-assign link_rt = ((aluop1)&(~aluop0)) & ( (f2&f0&~(f3)&~(f1)) | (f3&~(f2)&~(f1)&f0) );
-assign reg31_rt =  ((aluop1)&(~aluop0)) & (f2&f0&~(f3)&~f1);
+assign link_rt  =  ((aluop1)&(~aluop0)) & (f2&f0&~(f3)&~(f1));
+assign reg31_rt =  ((aluop1)&(~aluop0)) & (f2&f0&~(f3)&~(f1));
 
 endmodule

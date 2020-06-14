@@ -144,7 +144,7 @@ shift shift26(inst25_0_shift, inst25_0);
 zeroext zext(inst25_0_shift_ext,inst25_0_shift);
 
 //AND gate
-assign pcsrc=branch && (((bltzal&&instruc[25])||out5)||jpc); 
+assign pcsrc=branch & (((bltzal&instruc[25])|out5)|jpc); 
 assign reg31_control=reg31 || reg31_rt;
 assign link_control=link || link_rt;
 assign jump_control=jump ^^ jpc;

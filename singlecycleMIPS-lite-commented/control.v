@@ -25,7 +25,7 @@ assign aluop2=beq|ori|jpc_inst|bltzal_inst;
 assign baln=baln_inst;
 assign link=baln_inst|jpc_inst|bltzal_inst;
 assign reg31=baln_inst|bltzal_inst;
-assign jump=baln_inst|jpc_inst;
+assign jump=jpc_inst;
 assign jpc=jpc_inst;
 assign bltzal=bltzal_inst;
 endmodule

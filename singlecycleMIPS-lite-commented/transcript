@@ -1,0 +1,214 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+project open C:/Modeltech_pe_edu_10.4a/examples/project2
+# Loading project project2
+# Compile of processor.v was successful.
+restart -f
+# No Design Loaded!
+vsim work.processor
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui 
+# Start time: 08:04:48 on Jun 19,2020
+# Loading work.processor
+# Loading work.mult2_to_1_1
+# Loading work.mult2_to_1_32
+# Loading work.mult2_to_1_5
+# Loading work.alu32
+# Loading work.adder
+# Loading work.control
+# Loading work.signext
+# Loading work.alucont
+# Loading work.shift
+# Loading work.zeroext
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(104): [PCDPC] - Port size (5) does not match connection size (32) for port 'i1'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/mult6 File: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (28) for port 'shout'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (26) for port 'shin'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+add wave -position insertpoint  \
+sim:/processor/pc \
+sim:/processor/clk \
+sim:/processor/datmem \
+sim:/processor/mem \
+sim:/processor/instruc \
+sim:/processor/registerfile
+run
+# Instruction Memory[0]= 00  Data Memory[0]= 00   Register[0]= 00000000
+# Instruction Memory[1]= 43  Data Memory[1]= 00   Register[1]= 00000014
+# Instruction Memory[2]= 28  Data Memory[2]= 00   Register[2]= 00000016
+# Instruction Memory[3]= 20  Data Memory[3]= 01   Register[3]= 00000016
+# Instruction Memory[4]= 10  Data Memory[4]= 00   Register[4]= 00000098
+# Instruction Memory[5]= 43  Data Memory[5]= 00   Register[5]= 00000030
+# Instruction Memory[6]= 00  Data Memory[6]= 00   Register[6]= 00000032
+# Instruction Memory[7]= 01  Data Memory[7]= 05   Register[7]= 00000042
+# Instruction Memory[8]= 00  Data Memory[8]= 00   Register[8]= 00000014
+# Instruction Memory[9]= 00  Data Memory[9]= 00   Register[9]= 00000028
+# Instruction Memory[10]= 00  Data Memory[10]= 00   Register[10]= xxxxxxxx
+# Instruction Memory[11]= 00  Data Memory[11]= 10   Register[11]= xxxxxxxx
+# Instruction Memory[12]= 00  Data Memory[12]= 00   Register[12]= xxxxxxxx
+# Instruction Memory[13]= 43  Data Memory[13]= 00   Register[13]= xxxxxxxx
+# Instruction Memory[14]= 00  Data Memory[14]= 01   Register[14]= xxxxxxxx
+# Instruction Memory[15]= 20  Data Memory[15]= 00   Register[15]= xxxxxxxx
+# Instruction Memory[16]= 8c  Data Memory[16]= 00   Register[16]= xxxxxxxx
+# Instruction Memory[17]= 24  Data Memory[17]= 00   Register[17]= xxxxxxxx
+# Instruction Memory[18]= 00  Data Memory[18]= 01   Register[18]= xxxxxxxx
+# Instruction Memory[19]= 00  Data Memory[19]= 10   Register[19]= xxxxxxxx
+# Instruction Memory[20]= ac  Data Memory[20]= 00   Register[20]= xxxxxxxx
+# Instruction Memory[21]= 43  Data Memory[21]= 00   Register[21]= xxxxxxxx
+# Instruction Memory[22]= 00  Data Memory[22]= 00   Register[22]= xxxxxxxx
+# Instruction Memory[23]= 04  Data Memory[23]= 25   Register[23]= xxxxxxxx
+# Instruction Memory[24]= 34  Data Memory[24]= 00   Register[24]= xxxxxxxx
+# Instruction Memory[25]= a3  Data Memory[25]= 00   Register[25]= xxxxxxxx
+# Instruction Memory[26]= 00  Data Memory[26]= 01   Register[26]= xxxxxxxx
+# Instruction Memory[27]= 50  Data Memory[27]= 24   Register[27]= xxxxxxxx
+# Instruction Memory[28]= 78  Data Memory[28]= 00   Register[28]= xxxxxxxx
+# Instruction Memory[29]= 00  Data Memory[29]= 01   Register[29]= xxxxxxxx
+# Instruction Memory[30]= 00  Data Memory[30]= 00   Register[30]= xxxxxxxx
+#                    0PC 00000004  SUM 00000000   INST 10430001   REGISTER 00000016 
+run
+run
+#                   40PC 0000000c  SUM 0000002c   INST 00430020   REGISTER 00000016 
+run
+run
+#                   80PC 00000010  SUM 00000014   INST 8c240000   REGISTER 00000016 
+run
+run
+#                  120PC 00000014  SUM 0000001a   INST ac430004   REGISTER 00000016 
+run
+run
+#                  160PC 00000018  SUM 00000070   INST 34a30050   REGISTER 00000016 
+run
+#                  180PC 00000018  SUM 00000070   INST 34a30050   REGISTER 00000070 
+run
+#                  200PC 0000001c  SUM 0000002c   INST 78000005   REGISTER 00000070 
+run
+#                  220PC 0000001c  SUM 00000020   INST 78000005   REGISTER 00000070 
+run
+#                  240PC 00000034  SUM 0000001a   INST ac430004   REGISTER 00000070 
+run
+# Compile of processor.v was successful.
+restart -f
+# Loading work.processor
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(104): [PCDPC] - Port size (5) does not match connection size (32) for port 'i1'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/mult6 File: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (28) for port 'shout'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (26) for port 'shin'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+run
+# Instruction Memory[0]= 00  Data Memory[0]= 00   Register[0]= 00000000
+# Instruction Memory[1]= 43  Data Memory[1]= 00   Register[1]= 00000014
+# Instruction Memory[2]= 28  Data Memory[2]= 00   Register[2]= 00000016
+# Instruction Memory[3]= 20  Data Memory[3]= 01   Register[3]= 00000016
+# Instruction Memory[4]= 00  Data Memory[4]= 00   Register[4]= 00000098
+# Instruction Memory[5]= 04  Data Memory[5]= 00   Register[5]= 00000030
+# Instruction Memory[6]= 09  Data Memory[6]= 00   Register[6]= f1111110
+# Instruction Memory[7]= 02  Data Memory[7]= 05   Register[7]= 00000001
+# Instruction Memory[8]= 00  Data Memory[8]= 00   Register[8]= 00000014
+# Instruction Memory[9]= c7  Data Memory[9]= 00   Register[9]= 00000028
+# Instruction Memory[10]= 30  Data Memory[10]= 00   Register[10]= xxxxxxxx
+# Instruction Memory[11]= 25  Data Memory[11]= 10   Register[11]= xxxxxxxx
+# Instruction Memory[12]= 6c  Data Memory[12]= 00   Register[12]= xxxxxxxx
+# Instruction Memory[13]= 00  Data Memory[13]= 00   Register[13]= xxxxxxxx
+# Instruction Memory[14]= 00  Data Memory[14]= 01   Register[14]= xxxxxxxx
+# Instruction Memory[15]= 05  Data Memory[15]= 00   Register[15]= xxxxxxxx
+# Instruction Memory[16]= 00  Data Memory[16]= 00   Register[16]= xxxxxxxx
+# Instruction Memory[17]= 00  Data Memory[17]= 00   Register[17]= xxxxxxxx
+# Instruction Memory[18]= 00  Data Memory[18]= 01   Register[18]= xxxxxxxx
+# Instruction Memory[19]= 00  Data Memory[19]= 10   Register[19]= xxxxxxxx
+# Instruction Memory[20]= 00  Data Memory[20]= 00   Register[20]= xxxxxxxx
+# Instruction Memory[21]= 22  Data Memory[21]= 00   Register[21]= xxxxxxxx
+# Instruction Memory[22]= 18  Data Memory[22]= 00   Register[22]= xxxxxxxx
+# Instruction Memory[23]= 24  Data Memory[23]= 25   Register[23]= xxxxxxxx
+# Instruction Memory[24]= xx  Data Memory[24]= 00   Register[24]= xxxxxxxx
+# Instruction Memory[25]= xx  Data Memory[25]= 00   Register[25]= xxxxxxxx
+# Instruction Memory[26]= xx  Data Memory[26]= 01   Register[26]= xxxxxxxx
+# Instruction Memory[27]= xx  Data Memory[27]= 24   Register[27]= xxxxxxxx
+# Instruction Memory[28]= xx  Data Memory[28]= 00   Register[28]= xxxxxxxx
+# Instruction Memory[29]= xx  Data Memory[29]= 01   Register[29]= xxxxxxxx
+# Instruction Memory[30]= xx  Data Memory[30]= 00   Register[30]= xxxxxxxx
+#                    0PC 00000004  SUM 00000009   INST 00040902   REGISTER 00000016 
+run
+run
+#                   40PC 00000008  SUM f1111111   INST 00c73025   REGISTER 00000016 
+run
+run
+#                   80PC 0000000c  SUM 00000000   INST 6c000005   REGISTER 00000016 
+run
+run
+#                  120PC 00000014  SUM 00000000   INST 00221824   REGISTER 00000016 
+run
+#                  140PC 00000014  SUM 00000000   INST 00221824   REGISTER 00000000 
+run
+#                  160PC 00000018  SUM xxxxxxxx   INST xxxxxxxx   REGISTER 00000000 
+run
+# Compile of processor.v was successful.
+restart -f
+# Loading work.processor
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(104): [PCDPC] - Port size (5) does not match connection size (32) for port 'i1'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/mult6 File: C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (28) for port 'shout'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+# ** Warning: (vsim-3015) C:/Modeltech_pe_edu_10.4a/examples/processor.v(148): [PCDPC] - Port size (32) does not match connection size (26) for port 'shin'. The port definition is at: C:/Modeltech_pe_edu_10.4a/examples/shift.v(1).
+#    Time: 0 ns  Iteration: 0  Instance: /processor/shift26 File: C:/Modeltech_pe_edu_10.4a/examples/shift.v
+run
+# Instruction Memory[0]= 00  Data Memory[0]= 00   Register[0]= 00000000
+# Instruction Memory[1]= 43  Data Memory[1]= 00   Register[1]= 00000014
+# Instruction Memory[2]= 28  Data Memory[2]= 00   Register[2]= 00000005
+# Instruction Memory[3]= 20  Data Memory[3]= 01   Register[3]= 00000004
+# Instruction Memory[4]= 00  Data Memory[4]= 00   Register[4]= f1110111
+# Instruction Memory[5]= 43  Data Memory[5]= 00   Register[5]= 00000030
+# Instruction Memory[6]= 00  Data Memory[6]= 00   Register[6]= 00000032
+# Instruction Memory[7]= 01  Data Memory[7]= 05   Register[7]= 00000042
+# Instruction Memory[8]= 00  Data Memory[8]= 00   Register[8]= 00000014
+# Instruction Memory[9]= 00  Data Memory[9]= 00   Register[9]= 00000028
+# Instruction Memory[10]= 00  Data Memory[10]= 00   Register[10]= xxxxxxxx
+# Instruction Memory[11]= 00  Data Memory[11]= 00   Register[11]= xxxxxxxx
+# Instruction Memory[12]= 00  Data Memory[12]= 0c   Register[12]= xxxxxxxx
+# Instruction Memory[13]= 43  Data Memory[13]= 00   Register[13]= xxxxxxxx
+# Instruction Memory[14]= 08  Data Memory[14]= 01   Register[14]= xxxxxxxx
+# Instruction Memory[15]= 2a  Data Memory[15]= 00   Register[15]= xxxxxxxx
+# Instruction Memory[16]= 88  Data Memory[16]= 00   Register[16]= xxxxxxxx
+# Instruction Memory[17]= 80  Data Memory[17]= 00   Register[17]= xxxxxxxx
+# Instruction Memory[18]= 00  Data Memory[18]= 01   Register[18]= xxxxxxxx
+# Instruction Memory[19]= 02  Data Memory[19]= 10   Register[19]= xxxxxxxx
+# Instruction Memory[20]= xx  Data Memory[20]= 00   Register[20]= xxxxxxxx
+# Instruction Memory[21]= xx  Data Memory[21]= 00   Register[21]= xxxxxxxx
+# Instruction Memory[22]= xx  Data Memory[22]= 00   Register[22]= xxxxxxxx
+# Instruction Memory[23]= xx  Data Memory[23]= 25   Register[23]= xxxxxxxx
+# Instruction Memory[24]= xx  Data Memory[24]= 00   Register[24]= xxxxxxxx
+# Instruction Memory[25]= xx  Data Memory[25]= 00   Register[25]= xxxxxxxx
+# Instruction Memory[26]= xx  Data Memory[26]= 01   Register[26]= xxxxxxxx
+# Instruction Memory[27]= xx  Data Memory[27]= 24   Register[27]= xxxxxxxx
+# Instruction Memory[28]= xx  Data Memory[28]= 00   Register[28]= xxxxxxxx
+# Instruction Memory[29]= xx  Data Memory[29]= 01   Register[29]= xxxxxxxx
+# Instruction Memory[30]= xx  Data Memory[30]= 00   Register[30]= xxxxxxxx
+#                    0PC 00000004  SUM 00000009   INST 00430001   REGISTER 00000004 
+run
+run
+#                   40PC 0000000c  SUM 00000000   INST 0043082a   REGISTER 00000004 
+run
+run
+#                   80PC 00000010  SUM f1110111   INST 88800002   REGISTER 00000004 
+run
+run
+#                  120PC 0000001c  SUM xxxxxxxx   INST xxxxxxxx   REGISTER 00000004 
+# End time: 08:15:41 on Jun 19,2020, Elapsed time: 0:10:53
+# Errors: 0, Warnings: 9

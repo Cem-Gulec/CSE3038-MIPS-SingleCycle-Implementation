@@ -10,7 +10,6 @@ out3,		//Output of mux with MemToReg control-mult3
 out4,		//Output of mux with (Branch&ALUZero) control-mult4
 out7,		//Output of mux with (link|link_rt) control-mux7
 out8,		//Output of mux with jump control mux8
-out9,
 sum,		//ALU result
 extad,	//Output of sign-extend unit
 adder1out,	//Output of adder which adds PC and 4-add1
@@ -38,12 +37,12 @@ wire [31:0] instruc,	//current instruction
 dpack;	//Read data output of memory (data read from memory)
 
 wire [2:0] gout;	//Output of ALU control unit
-wire link_rt, reg31_rt;
+wire link_rt, reg31_rt,jmadd,rformat;
 
-wire zout,nout, nout_reg,	//Zero output of ALU
-pcsrc, reg31_control, link_control, jump_control,memtoreg_control,	//Output of AND gate with Branch and ZeroOut inputs
+wire zout,nout,	//Zero output of ALU
+pcsrc, reg31_control, link_control, jump_control,	//Output of AND gate with Branch and ZeroOut inputs
 //Control signals
-regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal,jmadd;
+regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal;
 
 //32-size register file (32 bit(1 word) for each register)
 reg [31:0] registerfile[0:31];
@@ -74,9 +73,10 @@ end
  assign inst25_0=instruc[25:0];
  assign shamt=instruc[10:6];
  assign stat_reg[2] = zout;
- assign #40 nout_reg = nout;
- assign #10 stat_reg[1] = nout_reg;
+ assign stat_reg[1] = nout;
  assign stat_reg[0] = 0;
+ assign rformat = ~|inst31_26;
+ assign jmadd = ((instruc[5]&~(instruc[4])&~(instruc[3])&~(instruc[2])&~(instruc[1])&~(instruc[0]))&rformat;
 
 
 // registers
@@ -97,9 +97,6 @@ mult2_to_1_1  mult5(out5, stat_reg[2], stat_reg[1], baln);
 //mux with jump control (2nd top)
 mult2_to_1_32 mult8(out8, out4, inst25_0_shift_ext, jump_control);
 
-//mux with jmadd control
-mult2_to_1_32 mult9(out9, out8, out3, jmadd);
-
 //mux with (reg31|reg31_rt) control
 mult2_to_1_5  mult6(out6, out1, 31, reg31_control);
 
@@ -113,14 +110,14 @@ mult2_to_1_5  mult1(out1, instruc[20:16],instruc[15:11],regdest);
 mult2_to_1_32 mult2(out2, datab,extad,alusrc);
 
 //mux with MemToReg control
-mult2_to_1_32 mult3(out3, sum,dpack,memtoreg_control);
+mult2_to_1_32 mult3(out3, sum,dpack,memtoreg);
 
 //mux with (Branch&ALUZero) control
 mult2_to_1_32 mult4(out4, adder1out,adder2out,pcsrc);
 
 // load pc
 always @(negedge clk)
-pc=out9;
+pc=out8;
 
 // alu, adder and control logic connections
 
@@ -135,13 +132,13 @@ adder add2(adder1out,sextad,adder2out);
 
 //Control unit
 control cont(instruc[31:26],regdest,alusrc,memtoreg,regwrite,memread,memwrite,branch,
-aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal);
+aluop1,aluop0,baln,link,reg31,jump,jpc,bltzal,jmadd);
 
 //Sign extend unit
 signext sext(instruc[15:0],extad);
 
 //ALU control unit
-alucont acont(aluop1,aluop0,instruc[3],instruc[2], instruc[1], instruc[0] ,gout, link_rt, reg31_rt,jmadd);
+alucont acont(aluop1,aluop0,instruc[3],instruc[2], instruc[1], instruc[0] ,gout, link_rt, reg31_rt);
 
 //Shift-left 2 unit
 shift shift2(sextad,extad);
@@ -149,19 +146,18 @@ shift shift26(inst25_0_shift, inst25_0);
 zeroext zext(inst25_0_shift_ext,inst25_0_shift);
 
 //AND gate
-assign pcsrc=branch & (((bltzal&dataa[31])|out5)|jpc); 
+assign pcsrc=branch & (((bltzal&instruc[25])|out5)|jpc); 
 assign reg31_control=reg31 || reg31_rt;
 assign link_control=link || link_rt;
-assign jump_control=jump ^ jpc;
-assign memtoreg_control= jmadd || memtoreg;
+assign jump_control=jump ^^ jpc;
 
 //initialize datamemory,instruction memory and registers
 //read initial data from files given in hex
 initial
 begin
-$readmemh("initDm3.dat",datmem); //read Data Memory
-$readmemh("initIM3.dat",mem);//read Instruction Memory
-$readmemh("initReg3.dat",registerfile);//read Register File
+$readmemh("initDm.dat",datmem); //read Data Memory
+$readmemh("initIM.dat",mem);//read Instruction Memory
+$readmemh("initReg.dat",registerfile);//read Register File
 
 	for(i=0; i<31; i=i+1)
 	$display("Instruction Memory[%0d]= %h  ",i,mem[i],"Data Memory[%0d]= %h   ",i,datmem[i],

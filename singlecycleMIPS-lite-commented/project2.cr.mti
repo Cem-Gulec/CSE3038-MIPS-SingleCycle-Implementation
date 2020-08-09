@@ -1,0 +1,92 @@
+C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_32.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_32.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mult2_to_1_32
+
+Top level modules:
+	mult2_to_1_32
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_5.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mult2_to_1_5
+
+Top level modules:
+	mult2_to_1_5
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/shift_26.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/shift_26.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module shift_26
+
+Top level modules:
+	shift_26
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/processor.v {1 {vlog -work work -stats=none {C:\Modeltech_pe_edu_10.4a\examples\processor.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module processor
+
+Top level modules:
+	processor
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/adder.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/adder.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/signext.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/signext.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module signext
+
+Top level modules:
+	signext
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/alucont.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/alucont.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module alucont
+
+Top level modules:
+	alucont
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_1.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_1.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mult2_to_1_1
+
+Top level modules:
+	mult2_to_1_1
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/shift.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/shift.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module shift
+
+Top level modules:
+	shift
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/alu32.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/alu32.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module alu32
+
+Top level modules:
+	alu32
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_3.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult2_to_1_3.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mult2_to_1_3
+
+Top level modules:
+	mult2_to_1_3
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/control.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/control.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/zeroext.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/zeroext.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module zeroext
+
+Top level modules:
+	zeroext
+
+} {} {}}

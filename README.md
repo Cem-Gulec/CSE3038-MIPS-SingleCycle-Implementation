@@ -1,1 +1,1 @@
-# CSE3038-MIPS-SingleCycle-Implementation
+**Course name**: Computer Organization (CSE3038)
